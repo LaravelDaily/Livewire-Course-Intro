@@ -7,18 +7,22 @@
     </div>
 
     <ul class="c-sidebar-nav">
-             @can('profile_password_edit')
-                <li class="c-sidebar-nav-item">
-                    <a class="c-sidebar-nav-link {{ request()->is('profile/password') || request()->is('profile/password/*') ? 'active' : '' }}" href="{{ route('profile.password.edit') }}">
-                        <i class="fa-fw fas fa-key c-sidebar-nav-icon">
-                        </i>
-                        My profile
-                    </a>
-                </li>
-            @endcan
+        @can('profile_password_edit')
+            <li class="c-sidebar-nav-item">
+                <a class="c-sidebar-nav-link {{ request()->is('profile/password') || request()->is('profile/password/*') ? 'active' : '' }}"
+                   href="{{ route('profile.password.edit') }}">
+                    <i class="fa-fw fas fa-key c-sidebar-nav-icon">
+                    </i>
+                    My profile
+                </a>
+            </li>
+        @endcan
+
+        @livewire('menu-notifications')
 
         <li class="c-sidebar-nav-item">
-            <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+            <a href="#" class="c-sidebar-nav-link"
+               onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-sign-out-alt">
 
                 </i>

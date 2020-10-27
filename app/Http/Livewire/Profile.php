@@ -18,7 +18,7 @@ class Profile extends Component
 
     public function mount()
     {
-        $this->user = User::find(request('user_id'));
+        $this->user = auth()->user();
     }
 
     public function render()
@@ -33,6 +33,8 @@ class Profile extends Component
         $this->user->save();
 
         $this->success = true;
+
+        $this->emit('profileUpdated');
     }
 
     public function updatedUserName($value)
